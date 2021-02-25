@@ -1,0 +1,80 @@
+<!-- Code samples for display elements -->
+
+<mat-sidenav-container>
+	<mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')"
+		(closed)="events.push('close!')">
+		<sidenav-content></sidenav-content>
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<p>
+			<mat-toolbar [ngStyle]="{'background-color': lightMenu? 'lightgrey' : 'royalblue'}">
+				<button
+          mat-icon-button
+          class="example-icon menu-icon"
+          aria-label="Example icon-button with menu icon"
+          (click)="sidenav.toggle()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+				<span class="example-spacer"></span>
+				<span style="display: block; text-align: center"
+          >Nuventory Logo Here</span>
+				<span class="example-spacer"></span>
+				<button
+          mat-icon-button
+          class="example-icon identity-icon"
+          aria-label="Example icon-button with identity icon"
+          (click)="openDialog()"
+        >
+          <mat-icon>perm_identity</mat-icon>
+        </button>
+				<button
+          mat-icon-button
+          class="example-icon color-icon"
+          aria-label="Example icon-button with color choice icon"
+          (click)="invertMenuColor()"
+        >
+          <mat-icon>invert_colors</mat-icon>
+        </button>
+				<button
+          mat-icon-button
+          class="example-icon logout-icon"
+          aria-label="Example icon-button with logout icon"
+        >
+          <mat-icon>logout</mat-icon>
+        </button>
+			</mat-toolbar>
+		</p>
+		<!-- sidenav events -->
+		<!-- <p>
+      <mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox>
+    </p> -->
+		<p>
+			<button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
+		</p>
+		<p>Events:</p>
+		<div class="example-events">
+			<div *ngFor="let e of events">{{e}}</div>
+		</div>
+		<!-- dialog box -->
+		<div>
+			<ol>
+				<li>
+					<mat-form-field>
+						<mat-label>What's your name?</mat-label>
+						<input matInput [(ngModel)]="name" />
+          </mat-form-field>
+				</li>
+				<li>
+					<button mat-raised-button (click)="openDialog()">Pick one</button>
+				</li>
+				<li *ngIf="animal">You chose: <i>{{animal}}</i></li>
+			</ol>
+		</div>
+	</mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- Copyright 2020 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
