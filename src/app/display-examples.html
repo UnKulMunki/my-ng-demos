@@ -5,8 +5,8 @@
 		(closed)="events.push('close!')">
 		<sidenav-content></sidenav-content>
 	</mat-sidenav>
-
 	<mat-sidenav-content>
+
 		<p>
 			<mat-toolbar [ngStyle]="{'background-color': lightMenu? 'lightgrey' : 'royalblue'}">
 				<button
@@ -72,9 +72,6 @@
 				<li *ngIf="animal">You chose: <i>{{animal}}</i></li>
 			</ol>
 		</div>
+
 	</mat-sidenav-content>
 </mat-sidenav-container>
-
-<!-- Copyright 2020 Google LLC. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license -->
